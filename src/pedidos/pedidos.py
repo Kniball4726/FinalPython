@@ -1,5 +1,6 @@
 import os, time
 from colorama import Fore, Style
+from src.helpers.helper import salir_aplicacion
 
 menu:list=[]
 opcion:str=""
@@ -70,7 +71,7 @@ def buscarPedido(sede=None):
     except KeyboardInterrupt:
         print("\nSaliendo . . .")
         time.sleep(2)
-        exit()
+        salir_aplicacion()
 
 
 def agregarPedido(sede:str):
@@ -134,7 +135,7 @@ def agregarPedido(sede:str):
     except KeyboardInterrupt:
         print("\nSaliendo . . .")
         time.sleep(1)
-        exit()
+        salir_aplicacion()
     except Exception as e:
         input(f"\nOcurrió un error: {e}")
         agregarPedido(sede)
@@ -227,7 +228,7 @@ def modificarPedido(sede:str):
     except KeyboardInterrupt:
         print("\nSaliendo . . .")
         time.sleep(1)
-        exit()
+        salir_aplicacion()
     except Exception as e:
         input(Fore.RED + Style.BRIGHT + f"\nOcurrió un error: {e}\nPresione Enter para continuar..." + Style.RESET_ALL)
         modificarPedido(sede)
@@ -360,7 +361,7 @@ def eliminarPedido(sede:str):
     except KeyboardInterrupt:
         print(Fore.RED + Style.BRIGHT + "\nSaliendo . . ." + Style.RESET_ALL)
         time.sleep(1)
-        exit()
+        salir_aplicacion()
     except Exception as e:
         input(Fore.RED + Style.BRIGHT + f"\nOcurrió un error: {e}\nPresione Enter para continuar..." + Style.RESET_ALL)
         eliminarPedido(sede)

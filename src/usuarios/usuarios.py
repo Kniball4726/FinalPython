@@ -1,6 +1,6 @@
 import time
 from colorama import Fore, Style
-from src.helpers.helper import borrar_pantalla as borrarPantalla
+from src.helpers.helper import borrar_pantalla as borrarPantalla, salir_aplicacion
 
 menu:list=[]
 opcion:str=""
@@ -79,7 +79,7 @@ def agregarUsuario():
     except KeyboardInterrupt:
         print(Fore.RED + Style.BRIGHT + "\nSaliendo . . ." + Style.RESET_ALL)
         time.sleep(1)
-        exit()
+        salir_aplicacion()
     except TypeError:
         input(Fore.RED + Style.BRIGHT + "\nIndique un número válido para el DNI" + Style.RESET_ALL)
         subMenu()
@@ -120,7 +120,7 @@ def buscarUsuario():
     except KeyboardInterrupt:
         print(Fore.RED + Style.BRIGHT + "\nSaliendo . . ." + Style.RESET_ALL)
         time.sleep(1)
-        exit()
+        salir_aplicacion()
     except Exception as e:
         input(Fore.RED + Style.BRIGHT + f"\nOcurrió un error: {e}" + Style.RESET_ALL)
         subMenu()
@@ -203,7 +203,7 @@ def modificarUsuario():
     except KeyboardInterrupt:
         print(Fore.RED + Style.BRIGHT + "\nSaliendo . . ." + Style.RESET_ALL)
         time.sleep(1)
-        exit()
+        salir_aplicacion()
     except TypeError:
         input(Fore.RED + Style.BRIGHT + "\nIndique un número válido para el DNI" + Style.RESET_ALL)
         subMenu()
@@ -295,7 +295,7 @@ def subMenu(dni:int=0):
     except KeyboardInterrupt:
         print(Fore.RED + Style.BRIGHT + "\nSaliendo . . ." + Style.RESET_ALL)
         time.sleep(2)
-        exit()
+        salir_aplicacion()
     except TypeError:
         input(Fore.RED + Style.BRIGHT + "\nOpción no válida, debe indicar un número" + Style.RESET_ALL)
         subMenu()

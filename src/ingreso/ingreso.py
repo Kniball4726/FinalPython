@@ -1,6 +1,6 @@
 import time
 from colorama import Fore, Style
-from src.helpers.helper import borrar_pantalla as borrarPantalla
+from src.helpers.helper import borrar_pantalla as borrarPantalla, salir_aplicacion
 from src.pedidos.pedidos import agregarPedido, buscarPedido, verPedidos, modificarPedido, eliminarPedido
 from src.usuarios.usuarios import subMenu
 from src.sedes.sedes import sedes, sedeP
@@ -96,7 +96,7 @@ def ingreso():
             elif dni == 1:
                 print(Fore.RED + Style.BRIGHT + "\nSaliendo . . ."+ Style.RESET_ALL)
                 time.sleep(1)
-                exit()
+                salir_aplicacion()
             else:
                 print(Fore.RED+Style.BRIGHT+"\nEl DNI no se encuentra registrado"+Style.RESET_ALL)
                 time.sleep(1)   
@@ -172,7 +172,7 @@ def menuPrincipal(role, user, sede):
                 case "0":
                     print("\nSaliendo . . .")
                     time.sleep(1)
-                    exit()
+                    salir_aplicacion()
                 case _:
                     print("\nOpción no válida")
                     time.sleep(1)
@@ -184,7 +184,7 @@ def menuPrincipal(role, user, sede):
     except KeyboardInterrupt:
         print("\nSaliendo . . .")
         time.sleep(1)
-        exit()
+        salir_aplicacion()
     except TypeError:
         print("\nOpción no válida, debe indicar un número")
         time.sleep(1)

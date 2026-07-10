@@ -1,4 +1,5 @@
 from src.pedidos.pedidos import borrarPantalla
+from src.helpers.helper import salir_aplicacion
 import time
 from colorama import Fore, Style
 sedeP:list=["Pasteur", "Av. santa fe", "Av. Cordoba", "Av. Cabildo", "Florida", "Unicenter"]
@@ -47,7 +48,7 @@ def sedes():
     except KeyboardInterrupt:
         print("\nSaliendo . . .")
         time.sleep(1)
-        exit()
+        salir_aplicacion()
     except TypeError:
         input("\nOpción no válida, debe indicar un número")
         sedes()
@@ -78,7 +79,7 @@ def agregarSede():
     except KeyboardInterrupt:
         print(Fore.RED + Style.BRIGHT + "\nSaliendo . . ." + Style.RESET_ALL)
         time.sleep(1)
-        exit()
+        salir_aplicacion()
     except TypeError:
         input(Fore.RED + Style.BRIGHT + "\nOpción no válida, debe indicar un número" + Style.RESET_ALL)
         agregarSede()
@@ -104,7 +105,7 @@ def buscarSede():
     except KeyboardInterrupt:
         print(Fore.RED + Style.BRIGHT + "\nSaliendo . . ." + Style.RESET_ALL)
         time.sleep(2)
-        exit()
+        salir_aplicacion()
     except TypeError:
         input(Fore.RED + Style.BRIGHT + "\nOpción no válida, debe indicar un número" + Style.RESET_ALL)
         time.sleep(1)
@@ -131,7 +132,7 @@ def verSedes():
     except KeyboardInterrupt:
         print(Fore.RED + Style.BRIGHT + "\nSaliendo . . ." + Style.RESET_ALL)
         time.sleep(1)
-        exit()
+        salir_aplicacion()
     except TypeError:
         input(Fore.RED + Style.BRIGHT + "\nOpción no válida, debe indicar un número" + Style.RESET_ALL)
         verSedes()
@@ -170,7 +171,7 @@ def modificarSede():
     except KeyboardInterrupt:
         print(Fore.RED + Style.BRIGHT + "\nSaliendo . . ." + Style.RESET_ALL)
         time.sleep(1)
-        exit()
+        salir_aplicacion()
     except TypeError:
         input(Fore.RED + Style.BRIGHT + "\nOpción no válida, debe indicar un número" + Style.RESET_ALL)
         modificarSede()
@@ -196,7 +197,7 @@ def eliminarSede():
     except KeyboardInterrupt:
         input(Fore.RED + Style.BRIGHT + "\nSaliendo . . ." + Style.RESET_ALL)
         time.sleep(1)
-        exit()
+        salir_aplicacion()
     except TypeError:
         input(Fore.RED + Style.BRIGHT + "\nOpción no válida, debe indicar un número" + Style.RESET_ALL)
         eliminarSede()
