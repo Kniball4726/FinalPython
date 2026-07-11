@@ -43,14 +43,14 @@ def sedes():
                 case _:
                     input("\nOpción inválida. Por favor, seleccione una opción válida.")
     except ValueError:
-        input("\nOpción no válida, debe indicar un número")
+        input(Fore.RED+Style.BRIGHT+"\nOpción no válida, debe indicar un número"+Style.RESET_ALL)
         sedes()
     except KeyboardInterrupt:
-        print("\nSaliendo . . .")
+        print(Fore.RED+Style.BRIGHT+"\n\nSaliendo . . ."+ Style.RESET_ALL)
         time.sleep(1)
         salir_aplicacion()
     except TypeError:
-        input("\nOpción no válida, debe indicar un número")
+        input(Fore.RED+Style.BRIGHT+"\nOpción no válida, debe indicar un número"+Style.RESET_ALL)
         sedes()
     except Exception as e:
         input(f"\nOcurrió un error: {e}")
@@ -61,7 +61,7 @@ def agregarSede():
     try:
         borrarPantalla()
         print(Fore.GREEN + Style.BRIGHT + f"{ '='*50 }\nAgregar nueva sede\n{ '='*50 }" + Style.RESET_ALL)
-        nsede=input("\nIndique el nombre de la nueva sede a agregar:").strip().capitalize()
+        nsede=input("\nIndique el nombre de la nueva sede a agregar: \n").strip().capitalize()
         if nsede in sedeP:
             input(Fore.RED + Style.BRIGHT + "\nLa sede ya existe. Presione Enter para continuar..." + Style.RESET_ALL)
             time.sleep(1)

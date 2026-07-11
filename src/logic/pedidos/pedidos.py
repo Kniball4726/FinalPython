@@ -72,6 +72,10 @@ def buscarPedido(sede=None):
         print("\nSaliendo . . .")
         time.sleep(2)
         salir_aplicacion()
+    except Exception as e:
+        input(f"Error: {e}")
+        salir_aplicacion()
+
 
 
 def agregarPedido(sede:str):
@@ -225,6 +229,9 @@ def modificarPedido(sede:str):
     except ValueError:
         input(Fore.RED + Style.BRIGHT + "\nIndique un número válido" + Style.RESET_ALL)
         modificarPedido(sede)
+    except TypeError:
+        input(Fore.RED + Style.BRIGHT + "\nIndique un número válido" + Style.RESET_ALL)
+        modificarPedido(sede)
     except KeyboardInterrupt:
         print("\nSaliendo . . .")
         time.sleep(1)
@@ -308,9 +315,15 @@ def modificarProductosPedido(remito):
     except ValueError:
         input(Fore.RED + Style.BRIGHT + "\nIndique un número válido" + Style.RESET_ALL)
         modificarProductosPedido(remito)
+    except TypeError:
+        input(Fore.RED + Style.BRIGHT + "\nIndique un número válido" + Style.RESET_ALL)
+        modificarProductosPedido(remito)
     except Exception as e:
         input(Fore.RED + Style.BRIGHT + f"\nOcurrió un error: {e}\nPresione Enter para continuar..." + Style.RESET_ALL)
         modificarProductosPedido(remito)
+    except KeyboardInterrupt:
+        input(Fore.RED+Style.BRIGHT+"\n\nSaliendo . . ."+Style.RESET_ALL)
+        salir_aplicacion()
         
 def eliminarPedido(sede:str):
     """Función que permite eliminar un pedido existente en el sistema. Solicita al usuario que ingrese el número de remito del pedido a eliminar y verifica si existe en el diccionario de pedidos. Solo elimina pedidos de la sede de sesión."""
@@ -359,7 +372,7 @@ def eliminarPedido(sede:str):
         input(Fore.RED + Style.BRIGHT + "\nIndique un número válido" + Style.RESET_ALL)
         eliminarPedido(sede)
     except KeyboardInterrupt:
-        print(Fore.RED + Style.BRIGHT + "\nSaliendo . . ." + Style.RESET_ALL)
+        print(Fore.RED + Style.BRIGHT + "\n\nSaliendo . . ." + Style.RESET_ALL)
         time.sleep(1)
         salir_aplicacion()
     except Exception as e:

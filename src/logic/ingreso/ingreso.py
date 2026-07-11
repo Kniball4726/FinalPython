@@ -58,7 +58,7 @@ def ingreso():
         while True:
             borrarPantalla()
             print(Fore.GREEN + Style.BRIGHT + "Bienvenido al sistema de pedidos mayoristas.\nDebe indicar sus datos para ingresar\n\n" + Style.RESET_ALL)
-            print(Fore.RED + "Para salir coloque DNI 1" + Style.RESET_ALL)
+            print(Fore.RED + Style.BRIGHT+"Para salir coloque DNI 1" + Style.RESET_ALL)
             dni=int(input("\nIndique su DNI: "))
            
             if dni in usuarios:
@@ -68,7 +68,8 @@ def ingreso():
                 if user == usuarios[dni]["user"] and usuarios[dni]["password"] == password:
                     role = usuarios[dni]["role"]
                     while True:
-                        print(f"{'='*50}\nSedes disponibles:\n{'='*50}")
+                        borrarPantalla()
+                        print(Fore.GREEN + Style.BRIGHT + f"{'='*50}\nSedes disponibles:\n{'='*50}"+ Style.RESET_ALL)
                         for i, sede in enumerate(sedeP, start=1):
                             print(f"{i}. {sede}")
 
@@ -110,6 +111,10 @@ def ingreso():
         print(Fore.RED + Style.BRIGHT + "\nIndique un número valido" + Style.RESET_ALL)
         time.sleep(1)
         ingreso()
+    except KeyboardInterrupt:
+        print(Fore.RED + Style.BRIGHT + "\n\nSaliendo . . ."+Style.RESET_ALL)
+        time.sleep(2)
+        salir_aplicacion()
 
 def menuPrincipal(role, user, sede):
     """Función que muestra el menú principal del sistema. Permite a los usuarios seleccionar diferentes opciones para gestionar pedidos y usuarios, dependiendo de su rol (Admin o Usuario). Redirige a las funciones correspondientes según la opción seleccionada por el usuario.
@@ -126,7 +131,7 @@ def menuPrincipal(role, user, sede):
     try:
         while opcion != "0":
             borrarPantalla()
-            menu=[f"\n{'='*50}{Fore.GREEN}{Style.BRIGHT}\nBienvenid@s al menú principal{Style.RESET_ALL}\n{Style.BRIGHT}{'='*50}\nUsuario:{Style.RESET_ALL}{user}\n{Style.BRIGHT}Rol:{Style.RESET_ALL}{role}\n{Style.BRIGHT}Sede:{Style.RESET_ALL}{sede}\n{'='*50}{Style.RESET_ALL}","1.-Agregar pedido","2.-Buscar pedido","3.-Ver pedidos","4.-Modificar pedido","5.-Eliminar pedido"]
+            menu=[f"\n{'='*50}{Fore.GREEN}{Style.BRIGHT}\n\nBienvenid@s al menú principal{Style.RESET_ALL}\n\n{Style.BRIGHT}{'='*50}\n{Fore.CYAN}Usuario:{Style.RESET_ALL}{user}\n{Fore.CYAN}{Style.BRIGHT}Rol:{Style.RESET_ALL}{role}\n{Fore.CYAN}{Style.BRIGHT}Sede:{Style.RESET_ALL}{sede}\n{'='*50}{Style.RESET_ALL}","1.-Agregar pedido","2.-Buscar pedido","3.-Ver pedidos","4.-Modificar pedido","5.-Eliminar pedido"]
             # Agregar opciones adicionales de forma segura
             if role == "Admin":
                 menu.append("6.-Gestión de usuarios")
@@ -182,7 +187,7 @@ def menuPrincipal(role, user, sede):
         time.sleep(1)
         menuPrincipal(role, user, sede)
     except KeyboardInterrupt:
-        print("\nSaliendo . . .")
+        print(Fore.RED+Style.BRIGHT+"\n\nSaliendo . . ."+Style.RESET_ALL)
         time.sleep(1)
         salir_aplicacion()
     except TypeError:
