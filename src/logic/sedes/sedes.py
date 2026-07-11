@@ -1,4 +1,4 @@
-from src.pedidos.pedidos import borrarPantalla
+from src.logic.pedidos.pedidos import borrarPantalla
 from src.helpers.helper import salir_aplicacion
 import time
 from colorama import Fore, Style

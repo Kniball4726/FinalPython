@@ -1,9 +1,9 @@
 import time
 from colorama import Fore, Style
 from src.helpers.helper import borrar_pantalla as borrarPantalla, salir_aplicacion
-from src.pedidos.pedidos import agregarPedido, buscarPedido, verPedidos, modificarPedido, eliminarPedido
-from src.usuarios.usuarios import subMenu
-from src.sedes.sedes import sedes, sedeP
+from src.logic.pedidos.pedidos import agregarPedido, buscarPedido, verPedidos, modificarPedido, eliminarPedido
+from src.logic.usuarios.usuarios import subMenu
+from src.logic.sedes.sedes import sedes, sedeP
 
 
 menu:list=[]
@@ -71,15 +71,15 @@ def ingreso():
                         print(f"{'='*50}\nSedes disponibles:\n{'='*50}")
                         for i, sede in enumerate(sedeP, start=1):
                             print(f"{i}. {sede}")
-                    
-                            opcion_sede = int(input("\nIndique el número de la sede a la que pertenece: "))
-                            if 1 <= opcion_sede <= len(sedeP):
-                                sede = sedeP[opcion_sede - 1]
-                                menuPrincipal(role, user, sede)
-                                break
-                            else:
-                                input("\nNúmero de sede inválido. Presione Enter para continuar...")
-                                continue
+
+                        opcion_sede = int(input("\nIndique el número de la sede a la que pertenece: "))
+                        if 1 <= opcion_sede <= len(sedeP):
+                            sede = sedeP[opcion_sede - 1]
+                            menuPrincipal(role, user, sede)
+                            break
+                        else:
+                            input("\nNúmero de sede inválido. Presione Enter para continuar...")
+                            continue
                     
                 elif user != usuarios[dni]["user"] and usuarios[dni]["password"] == password:
                     print(Fore.RED + Style.BRIGHT+"\nUsuario incorrecto" + Style.RESET_ALL )
