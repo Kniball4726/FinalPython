@@ -112,4 +112,6 @@ Buenas ideas para contribuir:
 
 ## Licencia
 
-Este repositorio no incluye una licencia explícita. Agrega una `LICENSE` si deseas compartirlo con otros.
+Este proyecto está licenciado bajo la Licencia MIT.
+
+Consulta el archivo `LICENSE` para más detalles.
