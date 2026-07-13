@@ -2,10 +2,9 @@ from src.logic.pedidos.pedidos import borrarPantalla
 from src.helpers.helper import salir_aplicacion
 import time
 from colorama import Fore, Style
+
 sedeP:list=["Pasteur", "Av. santa fe", "Av. Cordoba", "Av. Cabildo", "Florida", "Unicenter"]
 opcion:str=""
-
-
 
 def sedes():
     """Función que muestra el menú de sedes y permite al usuario seleccionar una opción para agregar, buscar, ver, modificar o eliminar sedes. Maneja excepciones para entradas inválidas y permite al usuario volver a intentar el proceso o salir del proceso.
@@ -88,7 +87,6 @@ def agregarSede():
         agregarSede()
 
 
-
 def buscarSede():
     """Función que permite buscar una sede existente en el sistema. Solicita al usuario que ingrese el nombre de la sede a buscar y verifica si existe en la lista de sedes. Si la sede se encuentra, muestra un mensaje indicando que la sede existe; de lo contrario, muestra un mensaje indicando que la sede no se encuentra en el sistema. Maneja excepciones para entradas inválidas y permite al usuario volver a intentar el proceso o salir del proceso."""
     try:
@@ -165,6 +163,7 @@ def modificarSede():
                 
         else:
             input(Fore.RED + Style.BRIGHT + f"\nLa sede '{msede}' no se encuentra en el sistema.\nPresione Enter para continuar..." + Style.RESET_ALL)
+
     except ValueError:
         input(Fore.RED + Style.BRIGHT + "\nOpción no válida, debe indicar un número" + Style.RESET_ALL)
         modificarSede()
